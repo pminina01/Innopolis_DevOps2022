@@ -1,10 +1,16 @@
 # Python WebApp Moscow Time
 
-## Table of Contents
+![Python](https://github.com/pminina01/Innopolis_DevOps2022/actions/workflows/python-package.yml/badge.svg)
 
 * [About The Project](#about-the-project)
 
-* [How To Build](#getting-started)
+* [Getting Started (manually)](#getting-started-manually)
+
+* [Getting Started (docker)](#getting-started-docker)
+
+* [Unit tests](#unit-tests)
+
+* [GitHub Actions](#github-actions)
 
 * [Usage](#usage)
 
@@ -85,6 +91,25 @@ There are two ways to see the web page:
 1. Enter the url inside the browser: <http://127.0.0.1:5000>
 2. Run the command: `$ curl 127.0.0.1:5000`
    Then you will see the page with current time in Moscow.
+
+## Unit tests
+There is unit test for project built with pytest module. You can run them using the following commands:
+```bash
+cd app_python
+pytest .
+```
+
+## GitHub Actions
+
+Project have github workflow, some useful features you can see below:
+* Lint job is implemented
+* Test and install dependencies job is implemented
+* Docker Login, Build & Push job is implemented
+* Snyk check job is implemented
+* Added a workflow status badge to README
+* Build cache is used
+* CI runs only if there are changes in the app_python folder
+
 
 ## Contact
 
