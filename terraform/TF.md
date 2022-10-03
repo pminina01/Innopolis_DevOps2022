@@ -4,7 +4,7 @@
 * [YandexCloud](#yandexcloud)
 * [Best Practices](#best-practices)
 
-#Docker
+# Docker
 
 ## 1 Build Infrastructure Step (Docker)
 * Added main.tf file
