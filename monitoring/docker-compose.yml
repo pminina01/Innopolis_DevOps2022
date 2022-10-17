@@ -17,7 +17,7 @@ services:
     <<: *logs
 
   app_go:
-    image: johndenkis/simple_go_app_test:latest
+    image: johndenkis/simple_go_app_v2:latest
     ports:
       - 2222:5000
     <<: *logs
