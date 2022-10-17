@@ -1,12 +1,5 @@
 version: "3.9"
 
-x-logs: &logs
-  logging:
-    driver: "json-file"
-    options:
-      max-size: "100m"
-      max-file: "10"
-      tag: "{{.ImageName}}|{{.Name}}"
 
 services:
 
@@ -14,20 +7,25 @@ services:
     image: johndenkis/simple_python_app_v2:latest
     ports:
       - 5000:5000
-    <<: *logs
+    logging:
+      driver: "json-file"
+      options:
+        tag: "{{.ImageName}}|{{.Name}}"
 
   app_go:
     image: johndenkis/simple_go_app_v2:latest
     ports:
       - 2222:5000
-    <<: *logs
+    logging:
+      driver: "json-file"
+      options:
+        tag: "{{.ImageName}}|{{.Name}}"
 
   loki:
     image: grafana/loki:2.6.1
     ports:
       - "3100:3100"
     command: -config.file=/etc/loki/local-config.yaml
-    <<: *logs
 
   promtail:
     image: grafana/promtail:2.6.1
@@ -36,7 +34,6 @@ services:
       - promtail-data:/var/lib/promtail/positions
       - ${PWD}/promtail.yml:/etc/promtail/config.yml
     command: -config.file=/etc/promtail/config.yml
-    <<: *logs
 
   grafana:
     image: grafana/grafana:latest
@@ -58,7 +55,6 @@ services:
         /run.sh
     ports:
       - "3000:3000"
-    <<: *logs
 
 volumes:
   promtail-data: {}
