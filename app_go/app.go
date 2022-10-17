@@ -5,6 +5,7 @@ import (
         "net/http"
         "time"
         "log"
+        "os"
 )
 
 func getTime(tz string) string{
@@ -23,6 +24,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
         port := "2222"
+        log.SetOutput(os.Stdout)
         log.Printf("Golang application is starting at localhost:2222")
         fmt.Println("Golang app")
         mux := http.NewServeMux()
