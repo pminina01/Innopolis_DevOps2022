@@ -24,6 +24,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
         port := "2222"
         log.Printf("Golang application is starting at localhost:2222")
+        fmt.Println("Golang app")
         mux := http.NewServeMux()
         mux.HandleFunc("/", indexHandler)
         res := http.ListenAndServe(":"+port, mux)
